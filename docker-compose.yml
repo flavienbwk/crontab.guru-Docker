@@ -1,0 +1,15 @@
+version: "3.7"
+
+services:
+
+  nginx:
+    build: .
+    image: flavienb/crontab.guru-docker:20201202
+    restart: always
+    volumes:
+       - type: bind
+         source: ./nginx.conf
+         target: /etc/nginx/conf.d/default.conf
+         read_only: true
+    ports:
+      - '8080:80'
